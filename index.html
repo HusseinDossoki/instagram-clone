@@ -236,7 +236,7 @@
               <hr />
               <div class="msg"></div>
               <!-- Add the img element here to display the current post photo -->
-              <img id="current_post_photo" src="" alt="Current Post Photo" />
+              <img id="current_post_photo" src="" alt="Current Post Photo" width="150px" />
               <form id="post_edit_form">
                 <input type="hidden" id="edit_post_id" name="edit_post_id" />
                 <div class="my-3">
@@ -344,21 +344,28 @@
         <img src="${URL.createObjectURL(
           formData.get("pphoto")
         )}" class="post-image" alt="">
-        <div class="post-content">
-          <div class="reaction-wrapper">
-            <img src="images/like.PNG" class="icon" alt="">
+       <div class="post-content">
+  <div class="reaction-wrapper">
+            <img src="images/like.PNG" class="icon like-button icon" onclick="likePost(this)" alt="">
             <img src="images/comment.PNG" class="icon" alt="">
             <img src="images/send.PNG" class="icon" alt="">
             <img src="images/save.PNG" class="save icon" alt="">
           </div>
-          <p class="likes">0 likes</p>
-          <p class="description"><span>${formData.get("pcontent")}</span>125</p>
-          <p class="post-time">${formData.get("pdate")}</p>
+        <p class="likes">0 likes</p>
+  <p class="description"><span>${formData.get("aname")}</span>${formData.get("pcontent")}  </p>
+  <p class="post-time">${formData.get("pdate")}</p>
         </div>
-        <div class="comment-wrapper">
-          <img src="images/smile.PNG" class="icon ms-3" alt="">
-          <input type="text" class="comment-box" placeholder="Add a comment">
-          <button class="comment-btn">Post</button>
+          <div class="comments-section">
+            <div class="comments ps-3">
+              <!-- Display existing comments here -->
+            </div>
+            <div class="comment-input">
+            <div class="comment-wrapper">
+                <img src="images/smile.PNG" class="icon ms-3" alt="">
+                <input type="text" class="comment-box" placeholder="Add a comment">
+                <button class="comment-btn" onclick="addComment(this)">Post</button>
+              </div>
+          </div>
         </div>
       </div>
     `;
@@ -466,6 +473,44 @@
         post.style.display = "none"; // Hide the post if it doesn't match the search
       }
     });
+  }
+
+
+    function likePost(button) {
+    const post = button.closest(".post");
+    const likeCountElement = post.querySelector(".likes");
+    
+    // Get the current like count from the likes element
+    let currentLikeCount = parseInt(likeCountElement.textContent);
+
+    // Increment the like count
+    currentLikeCount++;
+
+    // Update the like count element's text
+    likeCountElement.textContent = `${currentLikeCount} likes`;
+
+    // Disable the like button after a user likes a post
+    button.disabled = true;
+  }
+
+  function addComment(button) {
+    const post = button.closest(".post");
+    const commentBox = post.querySelector(".comment-box");
+    const commentsSection = post.querySelector(".comments");
+    const commentText = commentBox.value.trim();
+
+    if (commentText !== "") {
+      // Create a new comment element
+      const commentElement = document.createElement("div");
+      commentElement.classList.add("comment");
+      commentElement.textContent = commentText;
+
+      // Append the comment to the comments section
+      commentsSection.appendChild(commentElement);
+
+      // Clear the comment box
+      commentBox.value = "";
+    }
   }
     </script>
     <script></script>
