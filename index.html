@@ -1,244 +1,473 @@
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/all.min.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
     <title>Document</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container container-nav ">
-            <a class="navbar-brand fw-bolder" href="#">Instaclone</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse ms-auto" id="navbarSupportedContent">
-                <div class="d-flex w-50 justify-content-center align-items-center ms-5">
-                    <input class="form-control w-100" type="search" placeholder="Search" aria-label="Search">
-                </div>
-                <ul class="navbar-nav ms-auto mb-1 mb-lg-0">
-                    <li class="nav-item">
-                        <i class="fa-solid fa-house fa-xl"></i>
-                    </li>
-                    <li class="nav-item">
-                        <i class="fa-regular fa-heart fa-xl"></i>
-                    </li>
-                    <li class="nav-item">
-                        <i class="fa-regular fa-message fa-xl"></i>
-                    </li>
-                    <li class="nav-item">
-                        <i class="fa-solid fa-plus fa-xl" data-bs-toggle="modal" data-bs-target="#post-add-modal"
-                            class="icon"></i>
-                    </li>
-                    <li class="nav-item">
-                        <img src="images/profile.jpg" class="user-profile icon" alt="">
-                    </li>
-                </ul>
-            </div>
+      <div class="container container-nav">
+        <a class="navbar-brand fw-bolder" href="#">Instaclone</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse ms-auto"
+          id="navbarSupportedContent"
+        >
+          <div
+            class="d-flex w-50 justify-content-center align-items-center ms-5"
+          >
+          <input
+          id="elementIdToFocus"
+          class="form-control w-100"
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+          oninput="searchPosts(this.value)"
+        />
+          </div>
+          <ul class="navbar-nav ms-auto mb-1 mb-lg-0">
+            <li class="nav-item">
+              <i class="fa-solid fa-house fa-xl"></i>
+            </li>
+            <li class="nav-item">
+              <i class="fa-regular fa-heart fa-xl"></i>
+            </li>
+            <li class="nav-item">
+              <i class="fa-regular fa-message fa-xl"></i>
+            </li>
+            <li class="nav-item">
+              <i
+                class="fa-solid fa-plus fa-xl"
+                data-bs-toggle="modal"
+                data-bs-target="#post-add-modal"
+                class="icon"
+              ></i>
+            </li>
+            <li class="nav-item">
+              <img src="images/profile.jpg" class="user-profile icon" alt="" />
+            </li>
+          </ul>
         </div>
+      </div>
     </nav>
     <div class="container">
-        <div class="row">
-            <div class="col-sm-12 col-md-9 wrapper">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="status-wrapper d-flex justify-content-center align-items-center">
-                            <div class="status-card">
-                                <div class="profile-pic"><img src="./images/payel.jpg" alt=""></div>
-                                <p class="username">sarah</p>
-                            </div>
-                            <div class="status-card">
-                                <div class="profile-pic"><img src="./images/nafir2.jpg" alt=""></div>
-                                <p class="username">gemy</p>
-                            </div>
-                            <div class="status-card">
-                                <div class="profile-pic"><img src="./images/pial.jpg" alt=""></div>
-                                <p class="username">hassan_adel</p>
-                            </div>
-                            <div class="status-card">
-                                <div class="profile-pic"><img src="./images/dristy.jpg" alt=""></div>
-                                <p class="username">marah</p>
-                            </div>
-                            <div class="status-card">
-                                <div class="profile-pic"><img src="./images/tanveer.jpg" alt=""></div>
-                                <p class="username">saher_ahamed</p>
-                            </div>
-                            <div class="status-card">
-                                <div class="profile-pic"><img src="./images/rimi.jpg" alt=""></div>
-                                <p class="username">heba_khaled_25</p>
-                            </div>
-                            <div class="status-card">
-                                <div class="profile-pic"><img src="./images/cat.jpg" alt=""></div>
-                                <p class="username">hussien</p>
-                            </div>
-                        </div>
-                    </div>
+      <div class="row">
+        <div class="col-sm-12 col-md-9 wrapper">
+          <div class="row">
+            <div class="col-12">
+              <div
+                class="status-wrapper d-flex justify-content-center align-items-center"
+              >
+                <div class="status-card">
+                  <div class="profile-pic">
+                    <img src="./images/payel.jpg" alt="" />
+                  </div>
+                  <p class="username">sarah</p>
                 </div>
-                <div class="row all-posts mb-5">
-                    <div class="col-md-8 col-sm-12 offset-md-2">
-                        <div class="post">
-                            <div class="info">
-                                <div class="user">
-                                    <div class="profile-pic">
-                                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxhtmBqlJilp6X2q2XsYxJ9DVYb_F8x17DjIOJcHtT&s"
-                                            alt="">
-                                    </div>
-                                    <p class="username">New post for testing</p>
-                                </div>
-                                <!-- Edit Delete -->
-                                <div class="dropdown">
-                                    <a class="dropdown-toggle" href="#" data-bs-toggle="dropdown">
-                                        <i class="fas fa-ellipsis-h"></i>
-                                    </a>
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                        <li><a data-bs-toggle="modal" editLsData="${item.id}"
-                                                data-bs-target="#edit-modal" class="dropdown-item post_edit"
-                                                href="#">Edit</a></li>
-                                        <li><a class="dropdown-item post_delete" deleteLsData="${item.id}"
-                                                href="#">Delete</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <img src="https://media.istockphoto.com/id/1322277517/photo/wild-grass-in-the-mountains-at-sunset.jpg?s=612x612&w=0&k=20&c=6mItwwFFGqKNKEAzv0mv6TaxhLN3zSE43bWmFN--J5w="
-                                class="post-image" alt="">
-                            <div class="post-content">
-                                <div class="reaction-wrapper">
-                                    <img src="images/like.PNG" class="icon" alt="">
-                                    <img src="images/comment.PNG" class="icon" alt="">
-                                    <img src="images/send.PNG" class="icon" alt="">
-                                    <img src="images/save.PNG" class="save icon" alt="">
-                                </div>
-                                <p class="likes">100 likes</p>
-                                <p class="description"><span>Demo Post</span>125</p>
-                                <p class="post-time">20 aug 2023</p>
-                            </div>
-                            <div class="comment-wrapper">
-                                <img src="images/smile.PNG" class="icon ms-3" alt="">
-                                <input type="text" class="comment-box" placeholder="Add a comment">
-                                <button class="comment-btn">Post</button>
-                            </div>
-                        </div>
-                    </div>
+                <div class="status-card">
+                  <div class="profile-pic">
+                    <img src="./images/nafir2.jpg" alt="" />
+                  </div>
+                  <p class="username">gemy</p>
                 </div>
+                <div class="status-card">
+                  <div class="profile-pic">
+                    <img src="./images/pial.jpg" alt="" />
+                  </div>
+                  <p class="username">hassan_adel</p>
+                </div>
+                <div class="status-card">
+                  <div class="profile-pic">
+                    <img src="./images/dristy.jpg" alt="" />
+                  </div>
+                  <p class="username">marah</p>
+                </div>
+                <div class="status-card">
+                  <div class="profile-pic">
+                    <img src="./images/tanveer.jpg" alt="" />
+                  </div>
+                  <p class="username">saher_ahamed</p>
+                </div>
+                <div class="status-card">
+                  <div class="profile-pic">
+                    <img src="./images/rimi.jpg" alt="" />
+                  </div>
+                  <p class="username">heba_khaled_25</p>
+                </div>
+                <div class="status-card">
+                  <div class="profile-pic">
+                    <img src="./images/cat.jpg" alt="" />
+                  </div>
+                  <p class="username">hussien</p>
+                </div>
+              </div>
             </div>
-            <div class="col-md-3 mt-4 d-none d-lg-block">
-                <div class="right-side d-md-flex flex-column mb-3">
-                    <div class="profile-card">
-                        <div class="profile-pic">
-                            <img src="./images/profile.jpg" alt="">
-                        </div>
-                        <div>
-                            <p class="username">ehab mohamed</p>
-                            <p class="sub-text"></p>
-                        </div>
-                        <button class="btn btn-outline-primary action-btn">switch</button>
-                    </div>
-                    <p class="suggestion-text">Suggestions for you</p>
-                    <div class="profile-card">
-                        <div class="profile-pic">
-                            <img src="./images/kaiful.jpg" alt="">
-                        </div>
-                        <div>
-                            <p class="username">abdo_236</p>
-                            <p class="sub-text">Followed by __hasnat_ali_siddique_</p>
-                        </div>
-                        <button class="btn btn-outline-primary action-btn">follow</button>
-                    </div>
-                    <div class="profile-card">
-                        <div class="profile-pic">
-                            <img src="./images/pulp.jpg" alt="">
-                        </div>
-                        <div>
-                            <p class="username">mohamed_ibrahim</p>
-                            <p class="sub-text">New to Instagram</p>
-                        </div>
-                        <button class="btn btn-outline-primary action-btn">follow</button>
-                    </div>
-                    <div class="profile-card">
-                        <div class="profile-pic">
-                            <img src="./images/ijaj.jpg" alt="">
-                        </div>
-                        <div>
-                            <p class="username">beshoy_emad_</p>
-                            <p class="sub-text">Followed by g.s.hasan + 2 more</p>
-                        </div>
-                        <button class="btn btn-outline-primary action-btn">follow</button>
-                    </div>
-                    <div class="profile-card">
-                        <div class="profile-pic">
-                            <img src="./images/oh achha.jpg" alt="">
-                        </div>
-                        <div>
-                            <p class="username">marina_yonnan</p>
-                            <p class="sub-text">Followed by tasir.01 + 1 more</p>
-                        </div>
-                        <button class="btn btn-outline-primary action-btn">follow</button>
-                    </div>
-                    <div class="profile-card">
-                        <div class="profile-pic">
-                            <img src="./images/mr.jpg" alt="">
-                        </div>
-                        <div>
-                            <p class="username">ahmed_mostafa</p>
-                            <p class="sub-text">Followed by ezz_eldin</p>
-                        </div>
-                        <button class="btn btn-outline-primary action-btn">follow</button>
-                    </div>
-                </div>
-            </div>
+          </div>
+          <div class="row all-posts mb-5"></div>
         </div>
-        <!-- create Post Modal Start -->
-        <div class="modal fade" id="post-add-modal">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <h2>Create Post</h2>
-                        <hr>
-                        <div class="msg"></div>
-                        <form id="post_add_form">
-                            <div class="my-3">
-                                <label for="">Author Name</label>
-                                <input name="aname" type="text" class="form-control">
-                            </div>
-                            <div class="my-3">
-                                <label for="">Author Profile Photo</label>
-                                <input name="aphoto" type="file" class="form-control">
-                            </div>
-                            <div class="my-3">
-                                <label for="">Post Content</label>
-                                <textarea name="pcontent" class="form-control"
-                                    placeholder="Write a caption..."></textarea>
-                            </div>
-                            <div class="my-3">
-                                <label for="">Post Photo</label>
-                                <input name="pphoto" type="file" class="form-control">
-                            </div>
-                            <div class="my-3">
-                                <label for="">Please Mention Your Post Date</label>
-                                <input name="pdate" type="date" class="form-control">
-                            </div>
-                            <div class="my-3">
-                                <!-- <button type="button" class="btn btn-primary w-100">Create Post</button> -->
-                                <input type="submit" class="btn btn-primary w-100" value="Create Post">
-                            </div>
-                        </form>
-                    </div>
-                </div>
+        <div class="col-md-3 mt-4 d-none d-lg-block">
+          <div class="right-side d-md-flex flex-column mb-3">
+            <div class="profile-card">
+              <div class="profile-pic">
+                <img src="./images/profile.jpg" alt="" />
+              </div>
+              <div>
+                <p class="username">ehab mohamed</p>
+                <p class="sub-text"></p>
+              </div>
+              <button class="btn btn-outline-primary action-btn">switch</button>
             </div>
+            <p class="suggestion-text">Suggestions for you</p>
+            <div class="profile-card">
+              <div class="profile-pic">
+                <img src="./images/kaiful.jpg" alt="" />
+              </div>
+              <div>
+                <p class="username">abdo_236</p>
+                <p class="sub-text">Followed by __hasnat_ali_siddique_</p>
+              </div>
+              <button class="btn btn-outline-primary action-btn">follow</button>
+            </div>
+            <div class="profile-card">
+              <div class="profile-pic">
+                <img src="./images/pulp.jpg" alt="" />
+              </div>
+              <div>
+                <p class="username">mohamed_ibrahim</p>
+                <p class="sub-text">New to Instagram</p>
+              </div>
+              <button class="btn btn-outline-primary action-btn">follow</button>
+            </div>
+            <div class="profile-card">
+              <div class="profile-pic">
+                <img src="./images/ijaj.jpg" alt="" />
+              </div>
+              <div>
+                <p class="username">beshoy_emad_</p>
+                <p class="sub-text">Followed by g.s.hasan + 2 more</p>
+              </div>
+              <button class="btn btn-outline-primary action-btn">follow</button>
+            </div>
+            <div class="profile-card">
+              <div class="profile-pic">
+                <img src="./images/oh achha.jpg" alt="" />
+              </div>
+              <div>
+                <p class="username">marina_yonnan</p>
+                <p class="sub-text">Followed by tasir.01 + 1 more</p>
+              </div>
+              <button class="btn btn-outline-primary action-btn">follow</button>
+            </div>
+            <div class="profile-card">
+              <div class="profile-pic">
+                <img src="./images/mr.jpg" alt="" />
+              </div>
+              <div>
+                <p class="username">ahmed_mostafa</p>
+                <p class="sub-text">Followed by ezz_eldin</p>
+              </div>
+              <button class="btn btn-outline-primary action-btn">follow</button>
+            </div>
+          </div>
         </div>
+      </div>
+      <!-- create Post Modal Start -->
+      <div class="modal fade" id="post-add-modal">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-body">
+              <h2>Create Post</h2>
+              <hr />
+              <div class="msg"></div>
+              <form id="post_add_form">
+                <div class="my-3">
+                  <label for="">Author Name</label>
+                  <input name="aname" type="text" class="form-control" />
+                </div>
+                <div class="my-3">
+                  <label for="">Post Content</label>
+                  <textarea
+                    name="pcontent"
+                    class="form-control"
+                    placeholder="Write a caption..."
+                  ></textarea>
+                </div>
+                <div class="my-3">
+                  <label for="">Post Photo</label>
+                  <input name="pphoto" type="file" class="form-control" />
+                </div>
+                <div class="my-3">
+                  <label for="">Please Mention Your Post Date</label>
+                  <input name="pdate" type="date" class="form-control" />
+                </div>
+                <div class="my-3">
+                  <input
+                    type="submit"
+                    class="btn btn-primary w-100"
+                    value="Create Post"
+                  />
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Edit Post Modal Start -->
+      <div class="modal fade" id="post-edit-modal">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-body">
+              <h2>Edit Post</h2>
+              <hr />
+              <div class="msg"></div>
+              <!-- Add the img element here to display the current post photo -->
+              <img id="current_post_photo" src="" alt="Current Post Photo" />
+              <form id="post_edit_form">
+                <input type="hidden" id="edit_post_id" name="edit_post_id" />
+                <div class="my-3">
+                  <label for="">Author Name</label>
+                  <input
+                    name="edit_aname"
+                    id="edit_aname"
+                    type="text"
+                    class="form-control"
+                  />
+                </div>
+                <div class="my-3">
+                  <label for="">Post Content</label>
+                  <textarea
+                    name="edit_pcontent"
+                    id="edit_pcontent"
+                    class="form-control"
+                    placeholder="Write a caption..."
+                  ></textarea>
+                </div>
+                <div class="my-3">
+                  <label for="">Post Photo</label>
+                  <input
+                    name="edit_pphoto"
+                    id="edit_pphoto"
+                    type="file"
+                    class="form-control"
+                    onchange="previewImage(this)"
+                  />
+                </div>
+                <div class="my-3">
+                  <label for="">Please Mention Your Post Date</label>
+                  <input
+                    name="edit_pdate"
+                    id="edit_pdate"
+                    type="date"
+                    class="form-control"
+                  />
+                </div>
+                <div class="my-3">
+                  <input
+                    type="submit"
+                    class="btn btn-primary w-100"
+                    value="Save Changes"
+                  />
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Edit Post Modal End -->
     </div>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/all.min.js"></script>
     <script src="js/main.js"></script>
-
     <script>
-    </script>
-</body>
+      document.addEventListener("DOMContentLoaded", function () {
+        const postForm = document.getElementById("post_add_form");
+        const postEditForm = document.getElementById("post_edit_form");
+        const postContainer = document.querySelector(".all-posts");
 
+        // Counter for generating unique post IDs
+        let postIdCounter = 0;
+        let editingPostId = null;
+
+        postForm.addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          // Get form data
+          const formData = new FormData(postForm);
+
+          // Create a unique post ID
+          const postId = `post-${++postIdCounter}`;
+
+          // Create a new post element
+          const newPost = document.createElement("div");
+          newPost.classList.add("col-md-8", "col-sm-12", "offset-md-2", "mb-5");
+          // Inside the postForm.addEventListener for creating posts
+          newPost.setAttribute(
+            "data-post-photo",
+            URL.createObjectURL(formData.get("pphoto"))
+          );
+          newPost.id = postId;
+          newPost.innerHTML = `
+      <div class="post">
+        <div class="info">
+          <div class="user">
+            <div class="profile-pic">
+              <img src="images/profile.jpg" alt="">
+            </div>
+            <p class="username">${formData.get("aname")}</p>
+          </div>
+          <!-- Edit Delete -->
+          <div class="dropdown">
+            <a class="dropdown-toggle" href="#" data-bs-toggle="dropdown">
+              <i class="fas fa-ellipsis-h"></i>
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <li><a class="dropdown-item post_edit" data-post-id="${postId}" href="#" data-bs-toggle="modal" data-bs-target="#post-edit-modal">Edit</a></li>
+              <li><a class="dropdown-item post_delete" data-post-id="${postId}" href="#">Delete</a></li>
+            </ul>
+          </div>
+        </div>
+        <img src="${URL.createObjectURL(
+          formData.get("pphoto")
+        )}" class="post-image" alt="">
+        <div class="post-content">
+          <div class="reaction-wrapper">
+            <img src="images/like.PNG" class="icon" alt="">
+            <img src="images/comment.PNG" class="icon" alt="">
+            <img src="images/send.PNG" class="icon" alt="">
+            <img src="images/save.PNG" class="save icon" alt="">
+          </div>
+          <p class="likes">0 likes</p>
+          <p class="description"><span>${formData.get("pcontent")}</span>125</p>
+          <p class="post-time">${formData.get("pdate")}</p>
+        </div>
+        <div class="comment-wrapper">
+          <img src="images/smile.PNG" class="icon ms-3" alt="">
+          <input type="text" class="comment-box" placeholder="Add a comment">
+          <button class="comment-btn">Post</button>
+        </div>
+      </div>
+    `;
+
+          // Append the new post to the post container
+          postContainer.appendChild(newPost);
+
+          // Clear the form
+          postForm.reset();
+
+          document.getElementById("post-add-modal").classList.remove("show");
+            document.getElementById("post-add-modal").setAttribute("aria-hidden", "true");
+            document.getElementById("post-add-modal").removeAttribute("aria-modal");
+
+        });
+
+        // Event delegation to handle edit and delete actions
+        postContainer.addEventListener("click", function (e) {
+          if (e.target.classList.contains("post_edit")) {
+            e.preventDefault();
+            const postId = e.target.getAttribute("data-post-id");
+            editingPostId = postId;
+            const postToEdit = document.getElementById(postId);
+            if (postToEdit) {
+              const postContent =
+                postToEdit.querySelector(".description span").textContent;
+              const postDate =
+                postToEdit.querySelector(".post-time").textContent;
+              document.getElementById("edit_post_id").value = postId;
+              document.getElementById("edit_aname").value =
+                postToEdit.querySelector(".username").textContent;
+              document.getElementById("edit_pcontent").value = postContent;
+              document.getElementById("edit_pdate").value = postDate;
+              document.getElementById("post-edit-modal").classList.add("show");
+            }
+          } else if (e.target.classList.contains("post_delete")) {
+            e.preventDefault();
+            const postId = e.target.getAttribute("data-post-id");
+            const postToDelete = document.getElementById(postId);
+            if (postToDelete) {
+              if (confirm("Are you sure you want to delete this post?")) {
+                postContainer.removeChild(postToDelete);
+              }
+            }
+          }
+        });
+
+        // Save edited post
+        postEditForm.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (editingPostId) {
+            const postToEdit = document.getElementById(editingPostId);
+            if (postToEdit) {
+              postToEdit.querySelector(".username").textContent =
+                document.getElementById("edit_aname").value;
+              postToEdit.querySelector(".description span").textContent =
+                document.getElementById("edit_pcontent").value;
+              postToEdit.querySelector(".post-time").textContent =
+                document.getElementById("edit_pdate").value;
+              //   // Get the current post's photo URL from the data attribute
+              //   const postPhotoUrl = postToEdit.getAttribute("data-post-photo");
+
+              //   // Populate the edit modal's input field for post photo
+              //   document.getElementById("edit_pphoto").value = postPhotoUrl;
+
+              // Get the current post's photo URL from the data attribute
+              const postPhotoUrl = postToEdit.getAttribute("data-post-photo");
+
+              // Set the src attribute of the current_post_photo image element
+              const currentPostPhoto =
+                document.getElementById("current_post_photo");
+              currentPostPhoto.src = postPhotoUrl;
+            }
+            editingPostId = null;
+            document.getElementById("post-edit-modal").classList.remove("show");
+            document.getElementById("post-edit-modal").setAttribute("aria-hidden", "true");
+
+          }
+        });
+      });
+
+      function previewImage(input) {
+        if (input.files && input.files[0]) {
+          const reader = new FileReader();
+
+          reader.onload = function (e) {
+            const currentPostPhoto =
+              document.getElementById("current_post_photo");
+            currentPostPhoto.src = e.target.result;
+          };
+
+          reader.readAsDataURL(input.files[0]);
+        }
+      }
+
+        // JavaScript to search posts
+  function searchPosts(searchTerm) {
+    const allPosts = document.querySelectorAll(".post");
+
+    allPosts.forEach((post) => {
+      const postContent = post.querySelector(".description span").textContent.toLowerCase();
+      if (postContent.includes(searchTerm.toLowerCase())) {
+        post.style.display = "block"; // Show the post if it matches the search
+      } else {
+        post.style.display = "none"; // Hide the post if it doesn't match the search
+      }
+    });
+  }
+    </script>
+    <script></script>
+  </body>
 </html>
