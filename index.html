@@ -494,17 +494,19 @@
   }
 
   function addComment(button) {
-    const post = button.closest(".post");
-    const commentBox = post.querySelector(".comment-box");
-    const commentsSection = post.querySelector(".comments");
-    const commentText = commentBox.value.trim();
+  const post = button.closest(".post");
+  const commentBox = post.querySelector(".comment-box");
+  const commentsSection = post.querySelector(".comments");
+  const commentText = commentBox.value.trim();
+  const authorName = post.querySelector(".username").textContent; // Get the author's name
 
-    if (commentText !== "") {
-      // Create a new comment element
-      const commentElement = document.createElement("div");
-      commentElement.classList.add("comment");
-      commentElement.textContent = commentText;
+  if (commentText !== "") {
+    // Create a new comment element
+    const commentElement = document.createElement("div");
+    commentElement.classList.add("comment");
+    commentElement.textContent = `${authorName}: ${commentText}`;
 
+    
       // Append the comment to the comments section
       commentsSection.appendChild(commentElement);
 
